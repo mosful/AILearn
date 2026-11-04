@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#176354">
+  <meta name="description" content="一起規劃你的第一堂 AI 實作課。告訴我們你想學什麼，以及工作、生活中最想用 AI 解決的事。匿名填答，約 5～8 分鐘。">
+  <title>你想用 AI 做什麼？｜AILearn 課前需求問卷</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./config.js" defer></script>
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#survey">跳到問卷</a>
+  <header class="site-header"><a class="brand" href="./">AILearn<span>一起把想法做出來</span></a><a href="https://mosful.github.io/camp/" target="_blank" rel="noopener noreferrer">看看網頁範例 <span aria-hidden="true">↗</span></a></header>
+  <main>
+    <section class="intro" aria-labelledby="page-title">
+      <h1 id="page-title">你想用 AI<br>做什麼？</h1>
+      <div class="intro-copy"><p>從一頁式網頁開始，<br>也從你每天遇到的小麻煩開始。</p><p>這堂課為 AI 新手準備。先聊聊你想學的事，我們一起把課程變得更實用。</p><div class="facts"><span>約 5～8 分鐘</span><span>匿名填答</span><span>沒有標準答案</span></div><a class="button" href="#survey">開始分享我的想法 <span aria-hidden="true">↓</span></a></div>
+    </section>
+    <aside class="invitation"><strong>還不知道 AI 能做什麼？很正常。</strong><p>每一題都有生活化的例子可以參考。不適用的選項可以跳過；有自己的想法，也都能自由寫下來。</p></aside>
+    <section id="survey" class="survey" aria-labelledby="survey-title">
+      <div class="survey-heading"><h2 id="survey-title">一起規劃你的第一堂 AI 課</h2><p>標示「必填」的題目請回答，其他都可略過。</p></div>
+      <noscript><p class="notice">此問卷需要 JavaScript 才能填答與送出，請開啟瀏覽器的 JavaScript 後重新整理。</p></noscript>
+      <div id="form-app" hidden>
+        <nav class="steps" aria-label="問卷階段"><ol><li aria-current="step">認識你</li><li>想學什麼</li><li>你的痛點</li><li>怎麼上課</li></ol></nav>
+        <div class="progress-meta"><span id="step-label">第 1 / 4 段</span><span id="draft-status" role="status">填答會暫存在這台裝置</span></div>
+        <div class="progress" role="progressbar" aria-label="問卷進度" aria-valuemin="0" aria-valuemax="4" aria-valuenow="1"><span></span></div>
+        <form id="needs-form" novalidate>
+          <div id="question-panels"></div>
+          <div class="honey" aria-hidden="true"><label>請保持空白<input type="text" name="website" autocomplete="off" tabindex="-1"></label></div>
+          <div id="form-error" class="notice error" role="alert" hidden></div>
+          <div class="form-actions"><button class="button secondary" type="button" id="back" hidden>上一段</button><button class="button" type="button" id="next">下一段：想學什麼 <span aria-hidden="true">→</span></button><button class="button" type="submit" id="submit" hidden>送出我的想法</button></div>
+          <p class="privacy">回覆僅供課程規劃，由老師保存在私人 Google 試算表。不蒐集姓名、Email 或聯絡方式；請勿填入公司機密、客戶資料或他人的個人資料。若要使用實際案例，會先去除可辨識資訊。</p>
+          <button class="text-button" type="button" id="clear">清除這台裝置的草稿</button>
+          <div id="clear-confirm" class="clear-confirm" hidden><p>要清除目前填寫的內容嗎？已送出的回覆不會受影響。</p><button type="button" id="confirm-clear" class="button secondary">清除草稿</button><button type="button" id="cancel-clear" class="text-button">保留內容</button></div>
+        </form>
+      </div>
+      <section id="success" class="success" hidden aria-labelledby="success-title" tabindex="-1"><span class="success-mark" aria-hidden="true">✓</span><h2 id="success-title">收到你的想法了！</h2><p>謝謝你幫忙規劃這堂課。你的回覆已儲存，老師會依大家的需求安排實作內容。</p><p>到時候，帶著一個想完成的點子來就好。</p><p class="receipt" id="receipt"></p><a class="button" href="https://mosful.github.io/camp/" target="_blank" rel="noopener noreferrer">看看可以做出的網頁</a></section>
+    </section>
+    <footer><a class="brand" href="./">AILearn</a><p>不需要先懂程式，先從一個想法開始。</p></footer>
+  </main>
+</body>
+</html>
