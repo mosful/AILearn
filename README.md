@@ -1,6 +1,6 @@
 # AILearn｜AI 新手課前需求問卷
 
-問卷網址：[https://mosful.github.io/AILearn/](https://mosful.github.io/AILearn/)
+問卷網址：[https://ai.mzoo.cc/](https://ai.mzoo.cc/)
 
 提供 AI 初學者參考選項與自由填寫，調查使用經驗、網頁用途、學習主題、工作與生活痛點、首要目標、學習顧慮與設備。共 14 題，分成四段，只有 AI 經驗、學習主題、最優先需求三題必填。匿名填答，回覆寫入老師的私人 Google 試算表。
 
