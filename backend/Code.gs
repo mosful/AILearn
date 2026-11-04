@@ -60,10 +60,10 @@ function doPost(e) {
     const sheet = SpreadsheetApp.openById(sheetId).getSheetByName('問卷回覆');
     const lastRow = sheet.getLastRow();
     const previous = lastRow > 1 ? sheet.getRange(2, 2, lastRow - 1, 1).createTextFinder(data.id).matchEntireCell(true).findNext() : null;
-    if (!previous) {
-      sheet.appendRow([Utilities.formatDate(new Date(), 'Asia/Taipei', 'yyyy-MM-dd HH:mm:ss'), data.id].concat(FIELDS.map(function (key) { return safeCell_(data[key]); })));
-      SpreadsheetApp.flush();
-    }
+    const row = [Utilities.formatDate(new Date(), 'Asia/Taipei', 'yyyy-MM-dd HH:mm:ss'), data.id].concat(FIELDS.map(function (key) { return safeCell_(data[key]); }));
+    if (previous) sheet.getRange(previous.getRow(), 1, 1, row.length).setValues([row]);
+    else sheet.appendRow(row);
+    SpreadsheetApp.flush();
     return json_({ ok: true, id: data.id });
   } catch (error) {
     const message = /^(資料格式|無法送出|回覆編號|問卷已更新|請選擇|請填寫|問卷資料|選項資料|文字過長|請重新|老師尚未|目前送出)/.test(error.message) ? error.message : '暫時無法儲存，請稍後再試。';

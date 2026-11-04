@@ -7,7 +7,10 @@ function backend() {
   const rows = [['時間', '編號']];
   const sheet = {
     getLastRow: () => rows.length,
-    getRange: () => ({ createTextFinder: id => ({ matchEntireCell() { return this; }, findNext: () => rows.some(row => row[1] === id) || null }) }),
+    getRange: start => ({
+      createTextFinder: id => ({ matchEntireCell() { return this; }, findNext: () => { const index = rows.findIndex(row => row[1] === id); return index < 0 ? null : { getRow: () => index + 1 }; } }),
+      setValues: values => { rows[start - 1] = values[0]; }
+    }),
     appendRow: row => rows.push(row)
   };
   const context = vm.createContext({
@@ -26,6 +29,12 @@ test('寫入成功才回覆相同回覆編號，重送不增加列數', () => {
   const b = backend(); const data = valid();
   assert.equal(b.post(data).ok, true); assert.equal(b.rows.length, 2);
   assert.equal(b.post(data).id, data.id); assert.equal(b.rows.length, 2);
+});
+test('確認逾時後修改再送出，更新同一列而不遺失最新答案', () => {
+  const b = backend(); const data = valid();
+  b.post(data);
+  assert.equal(b.post({ ...data, priority: '最新修改的需求' }).ok, true);
+  assert.equal(b.rows.length, 2); assert.equal(b.rows[1][9], '最新修改的需求');
 });
 test('必填資料及複選上限由後端阻擋', () => {
   const b = backend();
