@@ -166,6 +166,10 @@
     }
   } catch { document.querySelector('#draft-status').textContent = '此瀏覽器無法恢復草稿，仍可填答'; }
   show(step, false); app.hidden = false;
+  if (!window.AILEARN_CONFIG?.endpoint) {
+    const notice = el('p', { class: 'notice', role: 'status' }, '問卷已開放預覽，Google 試算表收件仍在設定中，目前無法送出。你可以先閱讀題目，正式開放後再填答。');
+    app.before(notice);
+  }
   form.addEventListener('submit', async event => {
     event.preventDefault(); if (busy || submitted || step !== 3) return;
     for (let i = 0; i < sections.length; i++) { if (!validate(i)) { show(i); validate(i); return; } }
