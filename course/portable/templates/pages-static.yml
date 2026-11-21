@@ -1,0 +1,34 @@
+# 選用範本：僅發布 docs 靜態檔，不執行 Lovable 伺服器專案
+name: 發布靜態活動網頁
+on:
+  push:
+    branches: [main]
+    paths: ['docs/**', '.github/workflows/pages-static.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: true
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: 取得程式碼
+        uses: actions/checkout@v7
+      - name: 設定 Pages
+        uses: actions/configure-pages@v6
+      - name: 確認靜態入口
+        run: test -s docs/index.html
+      - name: 上傳靜態成品
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: docs
+      - name: 發布網站
+        id: deployment
+        uses: actions/deploy-pages@v5

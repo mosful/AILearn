@@ -1,0 +1,290 @@
+[
+  {
+    "name": "01-lovable-prompt",
+    "stage": 0,
+    "step": 0,
+    "file": "01-lovable-prompt-s1-1.svg",
+    "width": 900,
+    "height": 360,
+    "source": "2026-11-21 實際操作重新擷取（2×像素）"
+  },
+  {
+    "name": "02-lovable-building",
+    "stage": 0,
+    "step": 0,
+    "file": "02-lovable-building-s1-1.svg",
+    "width": 988,
+    "height": 754,
+    "source": "2026-11-21 實際操作重新擷取（2×像素）"
+  },
+  {
+    "name": "03-lovable-first-preview",
+    "stage": 0,
+    "step": 1,
+    "file": "03-lovable-first-preview-s1-2.svg",
+    "width": 900,
+    "height": 679,
+    "source": "2026-11-21 實際操作重新擷取（2×像素）"
+  },
+  {
+    "name": "06-lovable-mobile-preview",
+    "stage": 0,
+    "step": 1,
+    "file": "06-lovable-mobile-preview-s1-2.svg",
+    "width": 900,
+    "height": 1054,
+    "source": "2026-11-21 實際操作重新擷取（2×像素）"
+  },
+  {
+    "name": "04-lovable-modify-prompt",
+    "stage": 0,
+    "step": 2,
+    "file": "04-lovable-modify-prompt-s1-3.svg",
+    "width": 715,
+    "height": 426,
+    "source": "2026-11-21 實際操作重新擷取（2×像素）"
+  },
+  {
+    "name": "05-lovable-modified-preview",
+    "stage": 0,
+    "step": 2,
+    "file": "05-lovable-modified-preview-s1-3.svg",
+    "width": 1488,
+    "height": 522,
+    "source": "2026-11-21 實際操作重新擷取（2×像素）"
+  },
+  {
+    "name": "07-lovable-export-prompt",
+    "stage": 0,
+    "step": 3,
+    "file": "07-lovable-export-prompt-s1-4.svg",
+    "width": 719,
+    "height": 472,
+    "source": "2026-11-21 實際操作重新擷取（2×像素）"
+  },
+  {
+    "name": "13-lovable-export-file",
+    "stage": 0,
+    "step": 3,
+    "file": "13-lovable-export-file-s1-4.svg",
+    "width": 1374,
+    "height": 505,
+    "source": "2026-11-21 實際操作重新擷取（2×像素）"
+  },
+  {
+    "name": "14-local-html-1440",
+    "stage": 0,
+    "step": 4,
+    "file": "14-local-html-1440-s1-5.svg",
+    "width": 950,
+    "height": 722,
+    "source": "2026-11-21 實際操作重新擷取（2×像素）"
+  },
+  {
+    "name": "14-local-html-390",
+    "stage": 0,
+    "step": 4,
+    "file": "14-local-html-390-s1-5.svg",
+    "width": 488,
+    "height": 1102,
+    "source": "2026-11-21 實際操作重新擷取（3×像素）"
+  },
+  {
+    "name": "35-lovable-chat-actions",
+    "stage": 1,
+    "step": 0,
+    "file": "35-lovable-chat-actions-s2-1.svg",
+    "width": 634,
+    "height": 430,
+    "source": "2026-11-21 實際操作重新擷取（2×像素）"
+  },
+  {
+    "name": "21-lovable-project-github-menu",
+    "stage": 1,
+    "step": 0,
+    "file": "21-lovable-project-github-menu-s2-1.svg",
+    "width": 636,
+    "height": 370,
+    "source": "2026-11-21 實際操作重新擷取（2×像素）"
+  },
+  {
+    "name": "22-lovable-connect-account",
+    "stage": 1,
+    "step": 0,
+    "file": "22-lovable-connect-account-s2-1.svg",
+    "width": 912,
+    "height": 410,
+    "source": "2026-11-21 實際操作重新擷取（2×像素）"
+  },
+  {
+    "name": "23-lovable-github-synced",
+    "stage": 1,
+    "step": 1,
+    "file": "23-lovable-github-synced-s2-2.svg",
+    "width": 912,
+    "height": 410,
+    "source": "2026-11-21 實際操作重新擷取（2×像素）"
+  },
+  {
+    "name": "08-github-new-repository",
+    "stage": 1,
+    "step": 2,
+    "file": "08-github-new-repository-s2-3.svg",
+    "width": 975,
+    "height": 1030,
+    "source": "2026-11-21 實際操作重新擷取（2×像素）"
+  },
+  {
+    "name": "09-github-repository-created",
+    "stage": 1,
+    "step": 2,
+    "file": "09-github-repository-created-s2-3.svg",
+    "width": 1389,
+    "height": 590,
+    "source": "2026-11-21 實際操作重新擷取（2×像素）"
+  },
+  {
+    "name": "10-github-add-file-menu",
+    "stage": 1,
+    "step": 3,
+    "file": "10-github-add-file-menu-s2-4.svg",
+    "width": 900,
+    "height": 422,
+    "source": "2026-11-21 實際操作重新擷取（2×像素）"
+  },
+  {
+    "name": "11-github-docs-filename",
+    "stage": 1,
+    "step": 3,
+    "file": "11-github-docs-filename-s2-4.svg",
+    "width": 1500,
+    "height": 659,
+    "source": "2026-11-21 實際操作重新擷取（2×像素）"
+  },
+  {
+    "name": "16-github-saved-code",
+    "stage": 1,
+    "step": 4,
+    "file": "16-github-saved-code-s2-5.svg",
+    "width": 895,
+    "height": 435,
+    "source": "2026-11-21 實際操作重新擷取（2×像素）"
+  },
+  {
+    "name": "17-github-commit-history",
+    "stage": 1,
+    "step": 4,
+    "file": "17-github-commit-history-s2-5.svg",
+    "width": 1780,
+    "height": 488,
+    "source": "2026-11-21 實際操作重新擷取（2×像素）"
+  },
+  {
+    "name": "24-pages-settings",
+    "stage": 2,
+    "step": 0,
+    "file": "24-pages-settings-s3-1.svg",
+    "width": 1434,
+    "height": 995,
+    "source": "2026-11-21 實際操作重新擷取（2×像素）"
+  },
+  {
+    "name": "28-pages-source-menu",
+    "stage": 2,
+    "step": 1,
+    "file": "28-pages-source-menu-s3-2.svg",
+    "width": 900,
+    "height": 508,
+    "source": "2026-11-21 實際操作重新擷取（2×像素）"
+  },
+  {
+    "name": "31-pages-branch-menu",
+    "stage": 2,
+    "step": 1,
+    "file": "31-pages-branch-menu-s3-2.svg",
+    "width": 900,
+    "height": 535,
+    "source": "2026-11-21 實際操作重新擷取（2×像素）"
+  },
+  {
+    "name": "29-pages-folder-menu",
+    "stage": 2,
+    "step": 1,
+    "file": "29-pages-folder-menu-s3-2.svg",
+    "width": 900,
+    "height": 535,
+    "source": "2026-11-21 實際操作重新擷取（2×像素）"
+  },
+  {
+    "name": "32-pages-before-save",
+    "stage": 2,
+    "step": 1,
+    "file": "32-pages-before-save-s3-2.svg",
+    "width": 900,
+    "height": 422,
+    "source": "2026-11-21 實際操作重新擷取（2×像素）"
+  },
+  {
+    "name": "30-pages-saved",
+    "stage": 2,
+    "step": 2,
+    "file": "30-pages-saved-s3-3.svg",
+    "width": 900,
+    "height": 688,
+    "source": "2026-11-21 實際操作重新擷取（2×像素）"
+  },
+  {
+    "name": "33-pages-actions",
+    "stage": 2,
+    "step": 2,
+    "file": "33-pages-actions-s3-3.svg",
+    "width": 1486,
+    "height": 482,
+    "source": "2026-11-21 實際操作重新擷取（2×像素）"
+  },
+  {
+    "name": "20-pages-live",
+    "stage": 2,
+    "step": 2,
+    "file": "20-pages-live-s3-3.svg",
+    "width": 944,
+    "height": 435,
+    "source": "2026-11-21 實際操作重新擷取（2×像素）"
+  },
+  {
+    "name": "34-github-edit-file",
+    "stage": 2,
+    "step": 3,
+    "file": "34-github-edit-file-s3-4.svg",
+    "width": 1495,
+    "height": 852,
+    "source": "2026-11-21 實際操作重新擷取（2×像素）"
+  },
+  {
+    "name": "25-github-update-commit",
+    "stage": 2,
+    "step": 3,
+    "file": "25-github-update-commit-s3-4.svg",
+    "width": 1780,
+    "height": 806,
+    "source": "2026-11-21 實際操作重新擷取（2×像素）"
+  },
+  {
+    "name": "26-pages-updated",
+    "stage": 2,
+    "step": 3,
+    "file": "26-pages-updated-s3-4.svg",
+    "width": 975,
+    "height": 422,
+    "source": "2026-11-21 實際操作重新擷取（2×像素）"
+  },
+  {
+    "name": "27-pages-mobile",
+    "stage": 2,
+    "step": 4,
+    "file": "27-pages-mobile-s3-5.svg",
+    "width": 488,
+    "height": 1102,
+    "source": "2026-11-21 實際操作重新擷取（3×像素）"
+  }
+]

@@ -1,0 +1,386 @@
+{
+  "01-lovable-prompt": {
+    "width": 900,
+    "height": 360,
+    "crop": [
+      470,
+      190,
+      720,
+      250
+    ],
+    "raw": "01-lovable-prompt.png",
+    "scale": 2
+  },
+  "02-lovable-building": {
+    "width": 988,
+    "height": 754,
+    "crop": [
+      320,
+      240,
+      790,
+      565
+    ],
+    "raw": "02-lovable-building.png",
+    "scale": 2
+  },
+  "03-lovable-first-preview": {
+    "width": 900,
+    "height": 679,
+    "crop": [
+      325.0,
+      105,
+      720.0,
+      505
+    ],
+    "raw": "03-lovable-first-preview.png",
+    "scale": 2
+  },
+  "06-lovable-mobile-preview": {
+    "width": 900,
+    "height": 1054,
+    "crop": [
+      556.0,
+      0,
+      720.0,
+      805.0
+    ],
+    "raw": "06-lovable-mobile-preview.png",
+    "scale": 2
+  },
+  "04-lovable-modify-prompt": {
+    "width": 715,
+    "height": 426,
+    "crop": [
+      0,
+      502,
+      572.0,
+      303.0
+    ],
+    "raw": "04-lovable-modify-prompt.png",
+    "scale": 2
+  },
+  "05-lovable-modified-preview": {
+    "width": 1488,
+    "height": 522,
+    "crop": [
+      0,
+      88,
+      1190,
+      380
+    ],
+    "raw": "05-lovable-modified-preview.png",
+    "scale": 2
+  },
+  "07-lovable-export-prompt": {
+    "width": 719,
+    "height": 472,
+    "crop": [
+      0,
+      465,
+      575.0,
+      340.0
+    ],
+    "raw": "07-lovable-export-prompt.png",
+    "scale": 2
+  },
+  "13-lovable-export-file": {
+    "width": 1374,
+    "height": 505,
+    "crop": [
+      325,
+      0,
+      1099.0,
+      366
+    ],
+    "raw": "13-lovable-export-file.png",
+    "scale": 2
+  },
+  "14-local-html-1440": {
+    "width": 950,
+    "height": 722,
+    "crop": [
+      116,
+      144,
+      760,
+      540
+    ],
+    "raw": "14-local-html-1440.png",
+    "scale": 2
+  },
+  "14-local-html-390": {
+    "width": 488,
+    "height": 1102,
+    "crop": [
+      0,
+      0,
+      390.0,
+      844.0
+    ],
+    "raw": "14-local-html-390.png",
+    "scale": 3
+  },
+  "35-lovable-chat-actions": {
+    "width": 634,
+    "height": 430,
+    "crop": [
+      0,
+      499,
+      507.0,
+      306.0
+    ],
+    "raw": "35-lovable-chat-actions.png",
+    "scale": 2
+  },
+  "21-lovable-project-github-menu": {
+    "width": 636,
+    "height": 370,
+    "crop": [
+      0,
+      547.0,
+      509.0,
+      258.0
+    ],
+    "raw": "21-lovable-project-github-menu.png",
+    "scale": 2
+  },
+  "22-lovable-connect-account": {
+    "width": 912,
+    "height": 410,
+    "crop": [
+      660,
+      70,
+      730,
+      290
+    ],
+    "raw": "22-lovable-connect-account.png",
+    "scale": 2
+  },
+  "23-lovable-github-synced": {
+    "width": 912,
+    "height": 410,
+    "crop": [
+      660,
+      70,
+      730,
+      290
+    ],
+    "raw": "23-lovable-github-synced.png",
+    "scale": 2
+  },
+  "08-github-new-repository": {
+    "width": 975,
+    "height": 1030,
+    "crop": [
+      386,
+      0,
+      780,
+      786
+    ],
+    "raw": "08-github-new-repository.png",
+    "scale": 2
+  },
+  "09-github-repository-created": {
+    "width": 1389,
+    "height": 590,
+    "crop": [
+      0,
+      11,
+      1111,
+      434
+    ],
+    "raw": "09-github-repository-created.png",
+    "scale": 2
+  },
+  "10-github-add-file-menu": {
+    "width": 900,
+    "height": 422,
+    "crop": [
+      521.5,
+      81.0,
+      720.0,
+      300.0
+    ],
+    "raw": "10-github-add-file-menu.png",
+    "scale": 2
+  },
+  "11-github-docs-filename": {
+    "width": 1500,
+    "height": 659,
+    "crop": [
+      224,
+      6,
+      1200.0,
+      489
+    ],
+    "raw": "11-github-docs-filename.png",
+    "scale": 2
+  },
+  "16-github-saved-code": {
+    "width": 895,
+    "height": 435,
+    "crop": [
+      0,
+      7,
+      716,
+      310
+    ],
+    "raw": "16-github-saved-code.png",
+    "scale": 2
+  },
+  "17-github-commit-history": {
+    "width": 1780,
+    "height": 488,
+    "crop": [
+      0,
+      160,
+      1424.0,
+      352
+    ],
+    "raw": "17-github-commit-history.png",
+    "scale": 2
+  },
+  "24-pages-settings": {
+    "width": 1434,
+    "height": 995,
+    "crop": [
+      0,
+      0,
+      1147,
+      758
+    ],
+    "raw": "24-pages-settings.png",
+    "scale": 2
+  },
+  "28-pages-source-menu": {
+    "width": 900,
+    "height": 508,
+    "crop": [
+      193.0,
+      213,
+      720.0,
+      368
+    ],
+    "raw": "28-pages-source-menu.png",
+    "scale": 2
+  },
+  "31-pages-branch-menu": {
+    "width": 900,
+    "height": 535,
+    "crop": [
+      193.0,
+      335,
+      720.0,
+      390
+    ],
+    "raw": "31-pages-branch-menu.png",
+    "scale": 2
+  },
+  "29-pages-folder-menu": {
+    "width": 900,
+    "height": 535,
+    "crop": [
+      302.0,
+      335,
+      720.0,
+      390
+    ],
+    "raw": "29-pages-folder-menu.png",
+    "scale": 2
+  },
+  "32-pages-before-save": {
+    "width": 900,
+    "height": 422,
+    "crop": [
+      176.0,
+      274.5,
+      720.0,
+      300.0
+    ],
+    "raw": "32-pages-before-save.png",
+    "scale": 2
+  },
+  "30-pages-saved": {
+    "width": 900,
+    "height": 688,
+    "crop": [
+      217.5,
+      121,
+      720.0,
+      512
+    ],
+    "raw": "30-pages-saved.png",
+    "scale": 2
+  },
+  "33-pages-actions": {
+    "width": 1486,
+    "height": 482,
+    "crop": [
+      235,
+      340,
+      1189.0,
+      348
+    ],
+    "raw": "33-pages-actions.png",
+    "scale": 2
+  },
+  "20-pages-live": {
+    "width": 944,
+    "height": 435,
+    "crop": [
+      116,
+      140,
+      755,
+      310
+    ],
+    "raw": "20-pages-live.png",
+    "scale": 2
+  },
+  "34-github-edit-file": {
+    "width": 1495,
+    "height": 852,
+    "crop": [
+      228,
+      6,
+      1196.0,
+      644
+    ],
+    "raw": "34-github-edit-file.png",
+    "scale": 2
+  },
+  "25-github-update-commit": {
+    "width": 1780,
+    "height": 806,
+    "crop": [
+      0,
+      100,
+      1424.0,
+      607
+    ],
+    "raw": "25-github-update-commit.png",
+    "scale": 2
+  },
+  "26-pages-updated": {
+    "width": 975,
+    "height": 422,
+    "crop": [
+      118,
+      239.5,
+      780,
+      300.0
+    ],
+    "raw": "26-pages-updated.png",
+    "scale": 2
+  },
+  "27-pages-mobile": {
+    "width": 488,
+    "height": 1102,
+    "crop": [
+      0,
+      0,
+      390.0,
+      844.0
+    ],
+    "raw": "27-pages-mobile.png",
+    "scale": 3
+  }
+}

@@ -1,0 +1,511 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>學員逐步手冊</title><style>
+:root{--bg:#f1f3ec;--surface:#e2e9db;--paper:#fff;--ink:#193f32;--muted:#506151;--accent:#d9e9a4;--focus:#8a681d;}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:24px}
+body{font:18px/1.9 "Microsoft JhengHei","PingFang TC",system-ui,sans-serif;color:var(--ink);background:var(--bg);margin:0;-webkit-font-smoothing:antialiased}
+main{max-width:1100px;margin:32px auto 0;background:var(--paper);padding:clamp(24px,5vw,64px)}
+h1,h2,h3{color:var(--ink);text-wrap:balance;letter-spacing:-.025em}
+h1{font-size:40px;line-height:1.35;margin:32px 0 28px}h2{font-size:28px;line-height:1.5;margin:56px 0 22px}h3{font-size:23px;line-height:1.6;margin:32px 0 16px}
+p{max-width:68ch;margin:16px 0 24px}li{padding:0 0 12px 6px}li::marker{color:var(--ink);font-weight:700}
+a{color:#315d43;overflow-wrap:anywhere;text-underline-offset:5px}
+small{font-size:16px;color:var(--muted)}
+.table-scroll{overflow:auto;max-width:100%;margin:24px 0}
+table{width:100%;border-collapse:collapse;font-size:16px;line-height:1.8}
+td,th{padding:16px 18px;text-align:left;vertical-align:top;min-width:110px}th{background:var(--ink);color:var(--paper)}tbody tr:nth-child(odd){background:var(--bg)}tbody tr:nth-child(even){background:var(--surface)}
+pre{white-space:pre-wrap;overflow-wrap:anywhere;background:var(--surface);padding:24px;font-size:16px;line-height:1.85;margin:24px 0;color:var(--ink)}code{font-family:Consolas,monospace}
+.tools{display:flex;flex-wrap:wrap;align-items:center;gap:12px 22px;padding:0 0 12px;margin-bottom:28px;font-size:16px}
+button{font:inherit;font-weight:700;border:0;background:var(--accent);color:var(--ink);padding:12px 20px;min-height:48px;cursor:pointer}button:hover{background:var(--ink);color:var(--paper)}
+:focus-visible{outline:3px solid var(--focus);outline-offset:4px}
+@media(max-width:1150px){main{margin:20px;max-width:none}}
+@media(max-width:680px){body{font-size:17px}main{margin:0;padding:28px 22px}h1{font-size:30px;margin-top:24px}h2{font-size:25px;margin-top:40px}h3{font-size:21px}pre{padding:18px;font-size:15px}td,th{padding:12px;min-width:100px}small{font-size:15px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media print{@page{size:A4;margin:18mm}body{background:#fff;color:#000;font-size:11pt}main{margin:0;padding:0;max-width:none}h1{font-size:23pt}h2{font-size:17pt;break-after:avoid}h3{font-size:14pt;break-after:avoid}h1,h2,h3{color:#000}pre{font-size:9pt;background:#eee;color:#000}td,th{font-size:10pt;padding:5px;min-width:0}th{color:#000;background:#eee}.tools{display:none}a{color:#000;text-decoration:none}tr{break-inside:avoid}.table-scroll{overflow:visible}small{font-size:9pt;color:#000}}
+
+.prompt-version-switch{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0}
+.prompt-version-switch button{font-size:16px;background:var(--surface);color:var(--ink);padding:12px 20px;border:0;min-height:48px;cursor:pointer;font-weight:700}
+.prompt-version-switch .chosen{background:var(--ink);color:var(--paper)}
+.short-prompt{background:var(--bg);padding:22px;margin:14px 0}.short-prompt h4{font-size:18px;margin:0 0 12px}.short-prompt p{font:inherit;max-width:65ch;margin:0 0 20px}
+.lecturer-question>p{margin-bottom:8px}
+.lecturer-question .answer-toggle{background:transparent;margin:8px 0 0;padding:0;color:var(--ink)}
+.lecturer-question .answer-toggle>summary,details.answer-toggle>summary{background:transparent;color:var(--ink);padding:10px 0;min-height:44px;font-size:16px;line-height:1.7;font-weight:400;text-decoration:underline;text-underline-offset:4px}
+.lecturer-question .answer-toggle>summary::after{content:none}
+details.answer-toggle .reference-answer{display:block;font-size:16px;line-height:1.85;padding:8px 0 14px;margin:0;color:var(--muted)}
+@media(max-width:600px){.short-prompt{padding:18px}.prompt-version-switch{display:grid;grid-template-columns:1fr 1fr}.prompt-version-switch button{padding:12px;font-size:15px}details.answer-toggle .reference-answer{font-size:15px}}
+@media print{[data-prompt-panel][hidden]{display:block!important}.prompt-version-switch{display:none!important}details.answer-toggle .reference-answer{display:block!important;color:#000}}
+</style></head><body><main><div class="tools"><button onclick="window.print()">列印／另存 PDF</button> <a href="index.html">回教材首頁</a></div><h1>AI 小白的一頁式網頁實作課：學員逐步手冊</h1>
+<p>先用 Lovable 產生並修改網頁，再同步 GitHub、匯出靜態頁、設定 Pages 自動發布。最後依序補充 ChatGPT、Claude 製作與修改，兩條路線都先取得獨立 HTML，再由自己提交。</p>
+<p>本教材查閱日期：2026-11-05。1～2 分鐘為開場體驗目標，並非平台保證。免費功能與限制以當日帳號畫面為準。</p>
+<h2>課前準備</h2>
+<ul>
+<li>課前完成 Lovable 免費帳號登入，開啟首頁輸入區，確認剩餘建置額度。課堂以 1～2 分鐘看到第一版為體驗目標，實際時間依網路、平台及需求複雜度。</li>
+<li>註冊 GitHub 免費帳號、驗證信箱，確認可登入與通過雙重驗證。ChatGPT 免費帳號留作後半段補充，不要求 GitHub 連接。</li>
+<li>每人一台 Windows／Mac 電腦、充電器、Chrome／Edge、可收信的信箱與穩定 Wi-Fi。平板與手機用來驗收，不取代電腦實作。</li>
+<li>建立 ai-web-class 資料夾並顯示副檔名，準備記事本或純文字模式的文字編輯。課堂無須安裝 Node.js、Git 或付費外掛。</li>
+<li>講師事先以測試帳號完整走過 Lovable 生成、GitHub 授權、靜態匯出、Pages 發布。準備可用預覽、離線 sample/index.html 與 starter.html，並測試教室網路。</li>
+<li>示範只用虛構活動與公共地點。不要把真實聯絡資訊、名單、金鑰或私人照片放進會公開的專案。</li>
+<li>選用：先登入 claude.ai，於 Settings／Capabilities 檢查 Create and edit files（或 Cloud code execution and file creation）。本課採免費可用的 Artifacts／HTML 路線，不要求 Claude Code 或 GitHub 連接。</li>
+</ul>
+<h2>免費工具與 GitHub 能力</h2>
+<div class="table-scroll"><table><thead><tr><th>工具</th><th>判定</th><th>限制與依據</th><th>課堂用法</th></tr></thead><tbody>
+<tr><td>Lovable Free</td><td>可以</td><td>github.com 整合適用 Free，可建立儲存庫並雙向同步。</td><td>課堂主要製作與同步工具。</td></tr>
+<tr><td>ChatGPT Free</td><td>依帳號及介面</td><td>官方沒有保證所有 Free 帳號都有 GitHub app；即使可連接也只讀取、搜尋與分析。</td><td>用提示詞產出／修改檔案，再手動提交 GitHub。</td></tr>
+<tr><td>一般 ChatGPT GitHub app</td><td>不支援回寫</td><td>不能自動 push、建立程式修改或 PR，不能等同 Lovable 同步。</td><td>不作為本課發布步驟的前提。</td></tr>
+<tr><td>GitHub Free＋Pages</td><td>可以</td><td>使用 public repository 發布靜態檔案。</td><td>main /docs 收到提交後自動發布。</td></tr>
+<tr><td>Claude Free</td><td>可產生／修改作品</td><td>Artifacts 可用；需要相關檔案製作能力與剩餘額度，外部 app 與資料儲存另依方案。</td><td>接在 ChatGPT 後，以獨立 HTML 匯出、手動提交 GitHub。</td></tr>
+</tbody></table></div>
+<h2>1. Lovable：先看見第一版</h2>
+<p>目標：用最短需求立即看到 AI 產生網頁。</p>
+<ol>
+<li>開課前已登入 Lovable。開場先不講名詞，在首頁輸入框貼 L1，選 Build 並送出，開始計時。</li>
+<li>只做「週末自然散步」虛構活動，先不要登入、資料庫、付款、內建 AI 或 API。主要行動是查看集合地圖。</li>
+<li>以 1～2 分鐘看到可觀察的第一版為目標，不保證完成時間。等待期間請學員找出活動名稱、日期、行程與地圖按鈕。</li>
+<li>預覽出現後，立刻點一個導覽、開地圖、勾一個準備項目，感受生成的成果可以操作。此時是編輯預覽，還沒有 GitHub Pages 網址。</li>
+<li>先記錄目前畫面與一個想改的地方，讓後續概念都對應到自己的作品。</li>
+</ol>
+<p>完成檢查：能看見自己的第一版，並實際操作一個功能。</p>
+<p>卡關備案：超過 2 分鐘仍在生成時，講師先展示預備好的成果；學員保留原任務等待，不重複送出消耗額度。</p>
+<p>依據：<a href="https://docs.lovable.dev/introduction/credits-and-usage">Credits and usage</a>、<a href="https://docs.lovable.dev/introduction/getting-started">Quick start</a>。</p>
+<p>講師提問：現在看到漂亮的預覽，代表網站已經公開上線了嗎？</p>
+<details class="answer-toggle"><summary>查看參考解答</summary><small class="reference-answer">參考解答：還沒有。現在是 Lovable 的編輯預覽，稍後要把檔案同步到 GitHub，再由 Pages 發布，並用另一台裝置驗證。</small></details>
+<h2>2. 從成果整理需求</h2>
+<p>目標：先觀察結果，再把模糊想法改成可檢查的需求。</p>
+<ol>
+<li>打開自己剛生成的頁面，指出文字內容、視覺樣式、點按互動各一項，再對照參考生活營手冊的資訊架構。</li>
+<li>填工作單：讀者、主要行動、活動名稱、示範日期與地點、必要區塊、風格與驗收條件。</li>
+<li>共同資料為「週末自然散步」，示範日期 2026/12/12 09:00–12:00，地點大安森林公園。內容是虛構練習，不是真實招募。</li>
+<li>第一版只保留總覽、行程、準備清單、地圖與 FAQ。把「好看」改成例如「字大好讀、手機單欄、按鈕名稱明確」。</li>
+</ol>
+<p>完成檢查：說得出目標讀者、主要行動與五個必要區塊。</p>
+<p>卡關備案：想不出主題時使用共同示範，不把時間花在重新發想。</p>
+<p>依據：<a href="https://mosful.github.io/camp/">範例：2026 生活營手冊</a>。</p>
+<p>講師提問：「幫我做得好看一點」可以換成哪些具體條件？</p>
+<details class="answer-toggle"><summary>查看參考解答</summary><small class="reference-answer">參考解答：例如內文至少 18px、390px 手機不橫向捲動、地圖按鈕標示動作、日期一眼找得到，這些都能實際檢查。</small></details>
+<h2>3. 在 Lovable 修改內容與排版</h2>
+<p>目標：完成內容與版面修改，再確認既有功能仍可用。</p>
+<ol>
+<li>使用 L2 提出一組內容修改，例如活動名稱或三段行程。提供原文與新文，要求保留地圖、導覽和清單。</li>
+<li>使用 L3 提出一組樣式修改，例如深綠主色、內文至少 18px、手機單欄、平板依內容重排。每次只處理一組相關問題。</li>
+<li>若介面有 Visual edits／元素選取工具，可先選取標題或按鈕再修改。若功能受方案限制，改用文字提示詞即可。</li>
+<li>用預覽的裝置模式或 Chrome／Edge 的裝置工具列測 1440、768、390px。不要留下空側欄，也不能把固定雙欄硬塞進手機。</li>
+<li>每次修改後重點導覽、地圖與清單。截圖記錄修改前後差異，不只看顏色有沒有改。</li>
+</ol>
+<p>完成檢查：完成一項內容修改、一項樣式修改，三種寬度可讀。</p>
+<p>卡關備案：額度不足時停止反覆生成，改做既有頁面驗收，並以靜態範本完成後續流程。</p>
+<p>依據：<a href="https://docs.lovable.dev/introduction/credits-and-usage">Credits and usage</a>、<a href="https://docs.lovable.dev/introduction/getting-started">Quick start</a>。</p>
+<p>講師提問：改完顏色後，為什麼還要再點一次地圖和清單？</p>
+<details class="answer-toggle"><summary>查看參考解答</summary><small class="reference-answer">參考解答：AI 可能同時調整到結構或程式。重測原本功能，才能確認新的外觀沒有弄壞既有操作。</small></details>
+<h2>4. 確認功能與平台限制</h2>
+<p>目標：分清楚目前頁面、版本、服務額度與發布狀態。</p>
+<ol>
+<li>依工作單測導覽跳區、地圖位置、清單勾選與 Tab 焦點。指出至少一個待修問題，以 L4 回報重現步驟。</li>
+<li>在 Lovable 記錄可用版本或截圖，保留目前需求。免費建置額度在查閱日為每日 5、每月最多 30，不等於 5 次指令。</li>
+<li>清單只在目前頁面勾選，重新整理可重設。沒有表單後端就不能宣稱完成報名收件。</li>
+<li>目前只用前端靜態資訊，避免讓發布綁定登入、資料庫、伺服器函式或金鑰。即使沒啟用後端，專案框架仍可能含伺服器程式。</li>
+</ol>
+<p>完成檢查：能指出目前是預覽，知道額度與資料儲存限制。</p>
+<p>卡關備案：卡關 5 分鐘先保留可用版，勿要求學員付費。</p>
+<p>依據：<a href="https://docs.lovable.dev/introduction/credits-and-usage">Credits and usage</a>、<a href="https://help.openai.com/en/articles/11145903-connecting-github-to-chatgpt">Connecting GitHub to ChatGPT</a>、<a href="https://docs.lovable.dev/tips-tricks/deployment-hosting-ownership">Deployment, hosting, and ownership options</a>。</p>
+<p>講師提問：免費建置額度有 5 點，就一定能送 5 次修改嗎？</p>
+<details class="answer-toggle"><summary>查看參考解答</summary><small class="reference-answer">參考解答：不一定。額度是用量單位，單次工作可能消耗不同點數，還受每月上限影響，應查看剩餘量。</small></details>
+<h2>5. 將程式碼同步到 GitHub</h2>
+<p>目標：在自己的 GitHub 帳號取得完整專案。</p>
+<ol>
+<li>官方文件明示 Lovable 的 github.com 整合適用所有方案，包含 Free。學員使用自己的 GitHub 帳號，不共用密碼。</li>
+<li>在 Lovable 開 Project settings／Git／GitHub／Add connection（有些介面顯示 Add account），選標準 github.com。</li>
+<li>到 GitHub 授權視窗選自己的帳號，閱讀 Lovable GitHub app 的存取範圍。能選指定儲存庫就限縮到課堂用途；若尚未建庫，依授權流程建立後再檢查範圍。</li>
+<li>完成 Install &amp; Authorize，回 Lovable 在 Accounts 對自己的帳號按 Connect。平台會建立新儲存庫，預設 private。不要先建立同名空庫再要求匯入。</li>
+<li>按 View on GitHub，確認檔案與最新 Commit，並查看 Lovable Sync status。通常使用 main，若分支名稱不同，後續都以實際同步分支為準。</li>
+<li>同步是保存檔案，還不等於 Pages 已發布。先保留連接，後續靜態匯出仍要經這個連接同步。</li>
+</ol>
+<p>完成檢查：自己的 GitHub 儲存庫看得到完整程式碼與最新提交。</p>
+<p>卡關備案：授權視窗被擋時允許該站彈出視窗再重試。組織權限受限時改用個人教學帳號，仍保留限制紀錄。</p>
+<p>依據：<a href="https://docs.lovable.dev/integrations/github">Sync your Lovable project with GitHub</a>。</p>
+<p>講師提問：程式碼同步到 GitHub，就已經完成對外發布了嗎？</p>
+<details class="answer-toggle"><summary>查看參考解答</summary><small class="reference-answer">參考解答：還沒有。同步只讓 GitHub 取得程式碼，還要準備可發布的靜態檔、設定 Pages，並確認部署成功。</small></details>
+<h2>6. 匯出能離線開啟的靜態網頁</h2>
+<p>目標：把完成的視覺與內容整理成不依賴 Lovable 執行的檔案。</p>
+<ol>
+<li>先辨認專案檔案。官方說明新 Lovable 專案採用 TanStack Start，原始專案可能需要伺服器；GitHub Pages 只提供靜態檔，不能直接執行它。</li>
+<li>在 Lovable 貼 L5，要求依目前完成的內容、排版和互動，新增 docs/index.html 獨立靜態頁，CSS／JavaScript 內嵌，圖片若有則一併放 docs/assets 並用相對路徑。保留原始預覽專案。</li>
+<li>等同步完成，在 GitHub 的 docs 資料夾找到 index.html。若已有 docs 文件，先備份並確認用途；改用新的教學儲存庫，不覆蓋原有文件。</li>
+<li>從 GitHub Code／Download ZIP 下載並解壓縮，雙擊 docs/index.html。免費路線透過 GitHub 取檔，不要求 Lovable 付費的 Download codebase 功能。</li>
+<li>對照 Lovable 最終預覽，確認文字、顏色、間距、手機排版及功能。這是 AI 重新整理的靜態版本，必須實測，不能保證逐像素相同。</li>
+<li>如果 L5 未產出可用檔案，使用教材的靜態匯出範本或將內容交給 ChatGPT 產生 HTML，再上傳 GitHub 的 docs/index.html，並完成同樣驗收。</li>
+</ol>
+<p>完成檢查：下載後的 docs/index.html 能獨立開啟，且內容和必要功能一致。</p>
+<p>卡關備案：額度不足時用已準備的 portable/docs/index.html，替換活動內容後完成部署。</p>
+<p>依據：<a href="https://docs.lovable.dev/integrations/github">Sync your Lovable project with GitHub</a>、<a href="https://docs.lovable.dev/tips-tricks/deployment-hosting-ownership">Deployment, hosting, and ownership options</a>、<a href="https://docs.github.com/en/repositories/working-with-files/using-files/downloading-source-code-archives">Downloading source code archives</a>。</p>
+<p>講師提問：為什麼不能把 Lovable 的原始專案直接指定成 Pages 首頁？</p>
+<details class="answer-toggle"><summary>查看參考解答</summary><small class="reference-answer">參考解答：新專案可能需要伺服器，Pages 只會送出靜態檔。先匯出完整 HTML、CSS 與瀏覽器互動，才符合本課的主機能力。</small></details>
+<h2>7. GitHub Pages 自動發布</h2>
+<p>目標：設定一次發布來源，後續提交靜態頁就自動更新。</p>
+<ol>
+<li>先確認整份儲存庫及提交歷史都只有可公開的練習資料。Lovable 新建儲存庫預設 private，GitHub Free 的 Pages 需要 public repository。</li>
+<li>若確定是可公開的教學專案，到 GitHub Settings／General／Danger Zone／Change repository visibility，改為 Public 並完成介面確認。若不能公開原專案，就建立新的 public 教學庫，只上傳靜態 docs 檔案。</li>
+<li>在儲存庫開 Settings／Pages，Source 選 Deploy from a branch，Branch 選同步的 main，資料夾選 /docs，再 Save。這裡不是 /(root)，也不是把整個 src 放上去。</li>
+<li>到 Actions 查看 Pages 的部署紀錄，成功後回 Pages 按 Visit site，複製實際網址。一般專案格式為 https://你的帳號.github.io/儲存庫名稱/，網址不加 /docs。</li>
+<li>請同學用另一台裝置或無痕視窗開正式網址。發布可能需數分鐘，官方提醒有時可到 10 分鐘，未完成就註記待補。</li>
+<li>以後 docs/index.html 所在的發布分支有新提交，Pages 會自動更新。若只改 Lovable 原始預覽而沒更新靜態匯出，正式網站不會跟著變。</li>
+</ol>
+<p>完成檢查：取得正式 Pages 網址，另一台裝置可以開啟。</p>
+<p>卡關備案：404 時檢查 docs/index.html 大小寫、發布分支、/docs 來源與 Actions；等待期間先驗收本機版。</p>
+<p>依據：<a href="https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site">Creating a GitHub Pages site</a>、<a href="https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site">Configuring a publishing source</a>、<a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility">Setting repository visibility</a>。</p>
+<p>講師提問：網址要加上 /docs 才能看到頁面嗎？</p>
+<details class="answer-toggle"><summary>查看參考解答</summary><small class="reference-answer">參考解答：不用。/docs 是儲存庫內的發布資料夾，網站根目錄會對應它的內容，應以 Pages 的 Visit site 網址為準。</small></details>
+<h2>8. 離開 Lovable 更新作品</h2>
+<p>目標：直接修改 GitHub 檔案，驗證自動發布並了解雙向同步。</p>
+<ol>
+<li>先從 GitHub 下載 ZIP 作為快照，再開 docs/index.html 按鉛筆編輯。只改一段活動文字，保留 HTML 標籤與連結。</li>
+<li>填明確的 Commit message，例如「更新活動集合說明」，提交到發布分支。若介面要求 Pull request，建立後合併至發布分支。</li>
+<li>記下提交時間與識別，等待 Actions 完成，重新打開正式網址檢查新文字。這次不回 Lovable 修改，也不用按 Lovable Publish。</li>
+<li>仍連接 Lovable 時，GitHub 同步分支的改動可能同步回平台。不要讓兩邊同時編輯同一檔，避免互相覆蓋。</li>
+<li>若要完全停止使用 Lovable，確認 GitHub 備份與 Pages 可用後，才在 Lovable 的 Git 連接選單 Disconnect project。斷開後檔案仍在 GitHub，但不再雙向同步。</li>
+<li>後續可選擇以 docs/index.html 為唯一正式檔，或每次在 Lovable 改版後重新匯出 docs 並同步，再交給 Pages 自動發布。兩種維護方式要說清楚。</li>
+</ol>
+<p>完成檢查：直接在 GitHub 更新一次，正式網址自動顯示新版。</p>
+<p>卡關備案：改壞時先用已下載的可用快照還原 docs/index.html，重新提交並重測。</p>
+<p>依據：<a href="https://docs.lovable.dev/integrations/github">Sync your Lovable project with GitHub</a>、<a href="https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site">Configuring a publishing source</a>、<a href="https://docs.github.com/en/repositories/working-with-files/using-files/downloading-source-code-archives">Downloading source code archives</a>。</p>
+<p>講師提問：直接在 GitHub 改 docs/index.html，還需要按 Lovable Publish 嗎？</p>
+<details class="answer-toggle"><summary>查看參考解答</summary><small class="reference-answer">參考解答：不需要。網站由 GitHub Pages 發布，提交到發布分支後會觸發更新。Lovable Publish 只更新 Lovable 的託管版本。</small></details>
+<h2>9. ChatGPT 補充製作與修改路線</h2>
+<p>目標：用免費對話產生檔案，手動提交到同一條發布流程。</p>
+<ol>
+<li>先讀免費能力表。ChatGPT 免費可用文字提示詞產生與修改 HTML。GitHub app 的可用性依方案與介面，官方未保證所有 Free 帳號皆能連接。</li>
+<li>若要檢查自己的連接，開 Settings／Plugins（舊介面可能是 Apps），找 GitHub。若未出現或顯示方案限制，就不要把連接當課堂前提。</li>
+<li>即使能授權 GitHub，官方文件說 app 只供讀取、搜尋與分析，不能 push 程式碼或自動雙向同步。Codex 是另一路程式工具，不等於一般 ChatGPT 對話。</li>
+<li>新頁面使用 C1，後續修改使用 C2 或 C3，貼目前最新完整 HTML 並要求只改一件事、回傳完整檔案。</li>
+<li>Windows 用記事本另存 index.html，類型選所有檔案、UTF-8；Mac 文字編輯先選製作純文字。確認沒有 .txt，雙擊檔案預覽。</li>
+<li>在 GitHub 的 docs 資料夾選 Add file／Upload files，上傳同名 index.html 並提交。或用鉛筆貼上完整內容。這是手動提交，後面的 Pages 發布才是自動。</li>
+</ol>
+<p>完成檢查：能說明 ChatGPT 產檔、手動提交、Pages 自動發布的分工。</p>
+<p>卡關備案：看不到 GitHub app 不影響課程，直接貼 HTML 到對話並手動上傳。</p>
+<p>依據：<a href="https://help.openai.com/en/articles/9275245-chatgpt-free-tier-faq">ChatGPT Free Tier FAQ</a>、<a href="https://docs.github.com/en/repositories/working-with-files/managing-files/adding-a-file-to-a-repository">Adding a file to a repository</a>、<a href="https://help.openai.com/en/articles/11145903-connecting-github-to-chatgpt">Connecting GitHub to ChatGPT</a>。</p>
+<p>講師提問：ChatGPT 看得到 GitHub，就能自動幫我把新網頁推上去嗎？</p>
+<details class="answer-toggle"><summary>查看參考解答</summary><small class="reference-answer">參考解答：不能這樣推論。一般 GitHub app 是唯讀，Free 可用性也不保證。此路線由自己提交 HTML，再讓 Pages 自動發布。</small></details>
+<h2>10. Claude 製作與修改路線</h2>
+<p>目標：用 Artifacts 產生並調整網頁，匯出可自行維護的 HTML。</p>
+<ol>
+<li>在 ChatGPT 補充之後，開 claude.ai 並登入。免費方案可使用 Artifacts，先確認當日剩餘額度，不要求安裝 Claude Code 或連接 GitHub。</li>
+<li>開 Settings／Capabilities，確認 Create and edit files 已開啟；舊介面可能寫 Cloud code execution and file creation。若受工作區限制，以實際權限為準，不擅自調整組織安全設定。</li>
+<li>在新對話貼 CL1。可從 Output 選 Design，或要求建立可編輯的網頁作品。先用相同的虛構活動、明確區塊與裝置限制，不加入登入、資料庫或內建 AI。</li>
+<li>成果出現後，測導覽、地圖與清單。使用 CL2 一次改一件事，貼最新完整 HTML 或清楚指定正在編輯的作品，要求保留原功能及頁尾授權。</li>
+<li>使用 CL4 要求獨立 index.html。Design 作品可從 Export 選 standalone HTML；若匯出 ZIP，先解壓並確認入口和資源。若只取得程式碼，複製完整 HTML 用純文字編輯器存為 UTF-8。</li>
+<li>關閉 Claude 的預覽視窗後，用本機瀏覽器開 HTML，測三種寬度與功能。若仍依賴平台、伺服器或額外套件，請依 CL4 再整理為靜態單檔。</li>
+<li>將驗收後的檔案手動上傳到 GitHub 的 docs/index.html 並提交，等待 Pages 成功部署。Artifacts 預覽、分享或匯出不等於已提交 GitHub。</li>
+</ol>
+<p>完成檢查：能匯出獨立 HTML，修改一段內容並提交 GitHub，說明 Pages 才負責發布。</p>
+<p>卡關備案：額度不足、作品功能受限或無法匯出時，請 Claude 直接輸出完整 HTML，或先用教材靜態範本繼續，不要求付費。</p>
+<p>依據：<a href="https://support.claude.com/en/articles/17153992-what-are-artifacts-and-how-do-i-use-them">What are artifacts and how do I use them?</a>、<a href="https://support.claude.com/en/articles/10167454-use-the-github-integration">Use the GitHub integration</a>、<a href="https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site">Configuring a publishing source</a>。</p>
+<p>講師提問：Claude 的預覽可以操作，就代表下載後也一定能放上 Pages 嗎？</p>
+<details class="answer-toggle"><summary>查看參考解答</summary><small class="reference-answer">參考解答：不一定。先匯出獨立靜態 HTML，離開平台實際驗收；不能依賴伺服器或平台功能。再手動提交 GitHub，確認 Pages 部署結果。</small></details>
+<h2>11. 交件與學習驗收</h2>
+<p>目標：用正式網址與修改紀錄證明自己掌握流程。</p>
+<ol>
+<li>作業 A 在 Lovable 內容修改時開始，B 在靜態匯出與裝置驗收時開始，C 在發布及 GitHub 直接修改時開始，最後時間補完與互評。</li>
+<li>繳交 Lovable 前後畫面、GitHub 儲存庫網址、docs/index.html 路徑、正式 Pages 網址、手機截圖與一筆直接更新的提交紀錄。</li>
+<li>與同學交換網址，請他找到時間與地點，再實際點導覽、地圖、清單。修正一個具體問題。</li>
+<li>完成五題出口測驗，並用自己的話說明預覽、同步、靜態匯出、提交與發布的差異。</li>
+<li>選做作業 D 可依序試用 ChatGPT、Claude，比較同一個修改需求，再選一份驗收過的 HTML 提交。</li>
+</ol>
+<p>完成檢查：完成 ABC 作業，能重現 GitHub 提交後的自動發布。</p>
+<p>卡關備案：網路中斷時交本機檔及截圖並註明正式發布待補，不把儲存庫網址當作品網址。</p>
+<p>依據：<a href="https://docs.lovable.dev/integrations/github">Sync your Lovable project with GitHub</a>、<a href="https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site">Configuring a publishing source</a>。</p>
+<p>講師提問：如果 Lovable 已改版，正式網址還是舊內容，先查哪幾件事？</p>
+<details class="answer-toggle"><summary>查看參考解答</summary><small class="reference-answer">參考解答：先查 docs/index.html 是否已重新匯出、是否同步到發布分支、Pages 來源是否正確與部署是否成功，最後再排除快取。</small></details>
+<h1>提示詞小抄</h1>
+<p>使用前替換方括號內容。每次修改貼最新完整 HTML，先備份可用版本。</p>
+<h2>L1 Lovable 開場快速生成</h2>
+<pre><code>
+請製作繁體中文一頁式活動手冊「週末自然散步」，標示為虛構教學示範。示範日期 2026/12/12 09:00–12:00，地點大安森林公園。包含總覽、09:00 集合／09:30 散步／11:00 分享、可勾選準備清單、有效 Google Maps 連結、FAQ。深綠配淺色背景、字大易讀，手機單欄，平板與桌機依寬度重排。先做最小可操作版本，不加登入、資料庫、付款、內建 AI 或 API。
+
+</code></pre>
+<h2>L2 Lovable 內容修改</h2>
+<pre><code>
+目前版本請只修改：[原內容] 改成 [新內容]。活動標題、日期、行程與地圖必須一致。保留目前版面、導覽、地圖及清單功能，完成後列出變更與要重測的項目。
+
+</code></pre>
+<h2>L3 Lovable 排版修改</h2>
+<pre><code>
+請只調整目前網頁的版面：主色 [色碼]，內文至少 18px，390px 手機單欄不橫向溢出，768px 平板與 1440px 桌機依內容重排，不留下空側欄。保留目前文字、連結和互動，完成後說明三種寬度的檢查方式。
+
+</code></pre>
+<h2>L4 Lovable 除錯</h2>
+<pre><code>
+請修正目前版本的問題。步驟：[操作]；預期：[結果]；實際：[現象]；裝置／瀏覽器：[環境]；錯誤文字：[無則寫無]；最近修改：[內容]。先解釋原因，再做最小修正，保留已正常的導覽、地圖與清單。
+
+</code></pre>
+<h2>L5 匯出獨立靜態頁到 GitHub</h2>
+<pre><code>
+目前的內容、格式與排版已確認。請保留既有預覽專案，另外新增 docs/index.html，做一份能獨立用瀏覽器開啟的靜態匯出版，供 GitHub Pages 使用。若 docs 已有原用途，先回報，不要覆蓋既有文件。
+
+匯出版需保留目前活動文字、顏色、排版、頁內導覽、Google Maps 連結、FAQ 與勾選清單。CSS 和 JavaScript 全部內嵌，不引用 src、TSX、Node.js、SSR、伺服器函式、登入、資料庫、API key 或外部套件。若有必要圖片，放 docs/assets 並使用 ./assets/ 相對路徑。只使用可公開素材。
+
+請確認 HTML 從 &lt;!DOCTYPE html&gt; 到 &lt;/html&gt; 完整，包含 UTF-8 及 viewport。放入空白 docs/.nojekyll。不要修改既有的其他文件或部署設定。完成後列出新增檔案，提醒我等 GitHub 同步後下載 ZIP，再用 docs/index.html 驗收三種寬度與全部互動。此步驟是在新增靜態匯出，不代表原專案已能直接放上 Pages。
+
+</code></pre>
+<h2>L6 Lovable 改版後更新靜態匯出</h2>
+<pre><code>
+請依目前確認的新版本重新產出 docs/index.html，保留原始預覽與其他文件。更新 [變更清單]，確保圖片仍在 docs/assets 並使用相對路徑，沒有伺服器或外部套件依賴。完成後列出要對照的文字與功能，提醒我確認同步提交及 Pages 部署結果。
+
+</code></pre>
+<h2>C1 ChatGPT 產生獨立 HTML</h2>
+<pre><code>
+請擔任耐心的前端工程師，替零程式基礎學員製作一頁式活動網頁。
+
+活動：週末自然散步（虛構教學示範）
+
+讀者：想查看集合資訊的朋友。
+
+日期：示範日期 2026/12/12，09:00–12:00。
+
+地點：臺北市大安森林公園。
+
+目的：快速看懂行程並開啟集合地圖。
+
+區塊：活動總覽、三段行程、可勾選準備清單、集合地圖連結、3 則 FAQ。
+
+視覺：深綠、淺色背景、大字、易讀。
+
+需求：手機、平板、桌機依寬度重排，手機單欄，不要橫向溢出。
+
+限制：只交付一份完整 index.html，內含 CSS、JavaScript，使用原生 HTML，不使用 React、外部套件、CDN、登入、資料庫、付款或 API key。不要使用真實私人資料。清單只在目前頁面勾選即可，重新整理可以重設。主要按鈕連到有效的 Google Maps 地點搜尋網址。
+
+驗收：頁內導覽可用、地圖可點、清單能勾選、文字無亂碼。先用 3 句說明如何使用，再輸出從 &lt;!DOCTYPE html&gt; 到 &lt;/html&gt; 的完整程式碼。
+
+</code></pre>
+<h2>C2 ChatGPT 修改最新 HTML</h2>
+<pre><code>
+以下是目前完整 HTML。這次只把[原文字]改成[新文字]，並把[行程]調整成[內容]。保留原有導覽、地圖及勾選功能。請回傳修改後完整 HTML，並用兩句話列出變更與驗證方式。
+
+[貼上目前完整 HTML]
+
+</code></pre>
+<h2>C3 ChatGPT 除錯</h2>
+<pre><code>
+請協助除錯，先說明可能原因，再提供最小必要修正的完整 HTML。
+
+重現步驟：[開頁面後點哪裡]
+
+預期結果：[應發生什麼]
+
+實際結果：[現在發生什麼]
+
+環境：[Chrome／Edge，電腦或手機]
+
+錯誤訊息：[完整文字，沒有就寫無]
+
+最近修改：[上一次改了什麼]
+
+不可刪除：原本正常的行程、導覽、地圖及清單。
+
+目前完整 HTML：[貼上程式碼]
+
+</code></pre>
+<h2>C4 修正輸出格式</h2>
+<pre><code>
+剛才的輸出無法直接存檔預覽。請重新提供一份簡短、完整的 index.html，從 &lt;!DOCTYPE html&gt; 到 &lt;/html&gt;，CSS 和 JavaScript 全部內嵌。不要拆成多個檔案，不要 React、npm 或安裝步驟，也不要省略未修改的部分。請先確認所有必要標籤完整結束。
+
+</code></pre>
+<h2>C5 發布前審查</h2>
+<pre><code>
+請幫我檢查這份 HTML 是否適合 GitHub Pages：入口檔案、UTF-8、相對路徑、手機排版、連結、鍵盤焦點、圖片 alt、私人資料與 API key。請按「問題、影響、修正方式」回覆，先不要擅自加入新套件或刪功能。
+
+[貼上完整 HTML]
+
+</code></pre>
+<h2>CL1 Claude 產生網頁作品</h2>
+<pre><code>
+請建立可編輯的一頁式網頁作品，使用繁體中文。活動「週末自然散步」為虛構教學示範，示範日期 2026/12/12 09:00–12:00，地點大安森林公園。包含總覽、三段行程、可勾選準備清單、有效 Google Maps 連結與 FAQ。深綠配淺色背景，內文至少 18px，手機單欄、平板與桌機依寬度重排。不要登入、資料庫、付款、外部 API 或內建 AI。最後需提供可離開 Claude 獨立開啟的完整 index.html，CSS／JavaScript 內嵌，不依賴框架或平台。
+
+</code></pre>
+<h2>CL2 Claude 修改最新網頁</h2>
+<pre><code>
+請修改目前這份最新網頁作品：[貼完整 HTML，或清楚指定目前作品]。這次只把 [原內容或版面] 改成 [新要求]。保留行程、導覽、地圖、清單、鍵盤焦點及頁尾授權／聯繫入口。先說明影響，再提供完整 HTML，不省略未修改部分，並列出要重測的項目。
+
+</code></pre>
+<h2>CL3 Claude 除錯</h2>
+<pre><code>
+請協助修正目前 HTML。重現步驟：[操作]；預期：[結果]；實際：[現象]；裝置／瀏覽器：[環境]；錯誤訊息：[無則寫無]；最近修改：[內容]。先找原因，再給最小修正的完整 HTML，保留已可用功能與頁尾。最新完整 HTML：[貼上程式碼]。
+
+</code></pre>
+<h2>CL4 Claude 匯出 Pages 靜態檔</h2>
+<pre><code>
+請把目前確認的網頁整理成可供 GitHub Pages 發布的獨立 index.html，從 &lt;!DOCTYPE html&gt; 到 &lt;/html&gt; 完整輸出。CSS 與 JavaScript 全部內嵌，不引用 TSX、SSR、Node.js、伺服器函式、平台資料儲存、外部套件、金鑰或 Claude 內建 AI。保留文字、視覺、頁內導覽、地圖、勾選清單與現有頁尾。提供可下載的 standalone HTML，或完整程式碼，提醒我離線驗收後再手動上傳 GitHub 的 docs/index.html。
+
+</code></pre>
+<h1>新手常見問題與專有名詞</h1>
+<p>以下為依入門操作常見卡關情境編製的教學題庫，並非經統計排名的調查。涉及產品規則已查官方文件。</p>
+<h2>完全不會寫程式也可以嗎？</h2>
+<p>可以先學會說明需求、存檔、預覽與驗收。至少能辨認標題、連結和檔案位置，才有能力檢查 AI 的結果。</p>
+<h2>需要付費或信用卡嗎？</h2>
+<p>本課主線不要求付費或信用卡。AI 免費服務可能有額度與服務限制，講師提供離線 HTML 作備案。</p>
+<h2>Lovable、GitHub、Pages 和 ChatGPT 各做什麼？</h2>
+<p>Lovable 先產生與調整頁面，再同步程式碼到 GitHub。Pages 發布靜態匯出。ChatGPT 是補充產檔與修改路線，檔案由自己提交。</p>
+<h2>免費額度用完怎麼辦？</h2>
+<p>保存已生成作品與需求，用教材靜態範本繼續練習同步、提交與發布，不必為上課付費。生成的秒數與消耗額度均不保證。</p>
+<h2>為什麼同一句提示詞結果不一樣？</h2>
+<p>AI 會受模型、對話與生成差異影響。用明確內容與驗收條件縮小差異，不要求全班畫面完全一致。</p>
+<h2>AI 寫的一定正確嗎？</h2>
+<p>不一定。日期、地點、連結、互動與個資都需要人工檢查。看起來漂亮也可能有不能按的按鈕。</p>
+<h2>我只給 AI 網址，它會看到整頁嗎？</h2>
+<p>不保證。工具未必可開頁面或讀到互動內容。改提供有權分享的截圖、內容與需求，避免複製他人私人資料。</p>
+<h2>為什麼存出 index.html.txt？</h2>
+<p>編輯器用文字檔格式自動加上 .txt。顯示副檔名，另存時選所有檔案，確認最後只有 .html。</p>
+<h2>為什麼打開只看見程式碼？</h2>
+<p>先檢查副檔名，再確認檔案不是含反引號或富文字格式。用純文字儲存完整 HTML。</p>
+<h2>為什麼中文亂碼？</h2>
+<p>用 UTF-8 儲存並確認 head 中有 &lt;meta charset=&quot;UTF-8&quot;&gt;。避免以錯誤編碼反覆覆寫。</p>
+<h2>為什麼本機可以、上線卻壞掉？</h2>
+<p>常見原因是圖片沒上傳、大小寫不同、路徑錯誤或專案需要建置。單檔主線可減少這些問題。</p>
+<h2>為什麼 Pages 顯示 404？</h2>
+<p>檢查 docs/index.html 大小寫、發布分支、Pages 是否選 /docs，以及部署狀態。此路線的發布網址不加 /docs。</p>
+<h2>為什麼改好 GitHub 還是舊畫面？</h2>
+<p>先看部署是否成功，再重新整理或用無痕視窗測試。上傳與提交完成後仍需等待發布。</p>
+<h2>GitHub 儲存庫就是網站嗎？</h2>
+<p>儲存庫保存來源與版本，正式網站由 Pages 的 Visit site 開啟。docs 是來源資料夾，不是正式網址要追加的路徑。</p>
+<h2>私人儲存庫代表網站也私人嗎？</h2>
+<p>不能這樣推論。Pages 的網站可見性與方案另有規則，本課使用免費 public repository，內容視為公開。</p>
+<h2>Lovable 免費版可以同步 GitHub 嗎？</h2>
+<p>可以。官方文件明示 github.com 整合適用 Free、Pro 等所有方案，可雙向同步。新庫預設 private，Pages 免費路線另需公開可發布的儲存庫。</p>
+<h2>Lovable 新專案可以直接放 Pages 嗎？</h2>
+<p>不一定。官方目前新專案使用 TanStack Start，可能需要伺服器。課堂先另產生 docs/index.html 靜態匯出，不直接部署原始伺服器專案。</p>
+<h2>勾選清單會讓每個人同步嗎？</h2>
+<p>本課示範的勾選只影響目前頁面，重新整理會重設。跨裝置同步需要後端或其他服務。</p>
+<h2>能把報名表放進去嗎？</h2>
+<p>可連到自己建立的 Google 表單。先確認外部學員可填，再看回覆是否到達。畫出表單不代表資料已送出。</p>
+<h2>可以把 API key 寫在 HTML 嗎？</h2>
+<p>不要。瀏覽器可讀取前端程式碼。第一堂課不用金鑰，若未來需要，應另設安全的伺服器端處理。</p>
+<h2>脫離 Lovable 後還能修改嗎？</h2>
+<p>可以。GitHub 有檔案後可下載 ZIP 或直接編輯 docs/index.html，提交後讓 Pages 自動更新。斷開 Lovable 同步前先確認備份與網站可用。</p>
+<h2>想換圖片要怎麼做？</h2>
+<p>用有授權的圖片，上傳到相同資料夾，檔名大小寫保持一致，使用相對路徑並補 alt。避免直接引用別人的私人相簿。</p>
+<h2>需要買網域嗎？</h2>
+<p>本課不需要。GitHub Pages 提供 github.io 子網域。自訂網域通常另有費用，與網站內容是不同項目。</p>
+<h2>公開網址一定會被 Google 搜到嗎？</h2>
+<p>不一定。公開可開啟與搜尋引擎收錄不同，收錄需要時間，也不保證排名。</p>
+<h2>可以做付款、會員或真實客戶系統嗎？</h2>
+<p>這超出本課靜態頁範圍，涉及身分、資料儲存與服務規則。先保留展示功能，再另規劃合適的後端與主機。</p>
+<h2>ChatGPT 免費版能連 GitHub 並自動同步嗎？</h2>
+<p>GitHub 連接的可用性依帳號、方案和介面，官方未保證所有 Free 帳號都有。一般 GitHub app 即使可連也只讀、不 push；課堂採產檔後手動提交。</p>
+<h2>Google 表單為什麼同學不能填？</h2>
+<p>檢查是否已發布、是否限制組織或登入、填答者權限及是否停止收件。使用另一個帳號實際測一次。</p>
+<h2>關掉電腦後網站還在嗎？</h2>
+<p>本機 file:/// 需自己的檔案。已成功發布的 Pages 網站由服務提供，不依賴自己的電腦持續開機，仍受服務狀態與規則影響。</p>
+<h2>為什麼設定 main /docs，而不是 main /(root)？</h2>
+<p>本課把獨立靜態檔放在 docs，原專案可能含伺服器與 TSX。發布來源必須對準靜態首頁，不能把兩種架構混在一起。</p>
+<h2>改完 Lovable，Pages 會立即同步外觀嗎？</h2>
+<p>只有已匯出的靜態 docs 檔案同步到發布分支後，Pages 才會更新。若只改預覽原始碼，需重新匯出。直接在 GitHub 修改 docs 則可直接觸發發布。</p>
+<h2>一定能在 1～2 分鐘生成嗎？</h2>
+<p>這是開場體驗目標，不是服務保證。先用短提示詞做小範圍頁面，較慢時改看講師預備成果，避免反覆送出。</p>
+<h2>免費 Lovable 不能直接下載程式碼怎麼辦？</h2>
+<p>平台內 Download codebase 是付費功能。免費可先同步到 GitHub，再用 Code／Download ZIP 取得檔案快照。</p>
+<h2>Claude 免費版可以製作網頁嗎？</h2>
+<p>可以用文字提示詞及 Artifacts 製作和修改。需有相關檔案製作能力與剩餘額度，本課不要求 Claude Code、外部 app 或付費資料儲存。</p>
+<h2>Claude 的作品要怎麼下載？</h2>
+<p>Design 的 Export 可選 standalone HTML，或取得 ZIP 後解壓。若沒有合適匯出，要求完整單檔 HTML，再以純文字 UTF-8 存檔。下載後仍需離開平台驗收。</p>
+<h2>Claude 修改後會自動更新 GitHub 嗎？</h2>
+<p>本課不依賴 GitHub 整合或 Claude Code。由學員把最新 HTML 手動提交到 docs/index.html，再由 Pages 自動發布，不能把 Artifacts 分享當成部署。</p>
+<h2>教材的 CC BY-SA 4.0 代表什麼？</h2>
+<p>可分享、商用及改作，需依條款署名、附授權連結並標示修改。改作公開分享時須依相同方式分享規則處理。第三方素材依原授權。</p>
+<h2>名詞速查</h2>
+<div class="table-scroll"><table><thead><tr><th>名詞</th><th>白話解釋</th></tr></thead><tbody>
+<tr><td>AI</td><td>人工智慧，本課用來協助理解需求與產生內容。</td></tr>
+<tr><td>Prompt／提示詞</td><td>給 AI 的任務說明，包含目標、素材、限制與驗收條件。</td></tr>
+<tr><td>生成式 AI</td><td>根據輸入產生文字或程式碼等內容的系統，結果仍需檢查。</td></tr>
+<tr><td>幻覺</td><td>AI 產生看似合理但沒有根據或錯誤的內容。</td></tr>
+<tr><td>上下文</td><td>AI 這次回答可參考的對話與資料。新對話未必保有舊需求。</td></tr>
+<tr><td>HTML</td><td>網頁的內容與結構，例如標題、段落和連結。</td></tr>
+<tr><td>CSS</td><td>控制文字、顏色與排版的樣式。</td></tr>
+<tr><td>JavaScript</td><td>讓網頁執行互動邏輯的程式語言。</td></tr>
+<tr><td>index.html</td><td>本課網站的首頁入口檔案。</td></tr>
+<tr><td>瀏覽器</td><td>讀取並呈現網頁的軟體，例如 Chrome 或 Edge。</td></tr>
+<tr><td>URL</td><td>網路資源的位址。</td></tr>
+<tr><td>頁內錨點</td><td>用 #區塊ID 跳到同一頁的指定位置。</td></tr>
+<tr><td>RWD／響應式設計</td><td>依可用寬度調整排列、字級及間距，照顧手機、平板與桌機。</td></tr>
+<tr><td>前端</td><td>訪客在瀏覽器看到及操作的部分。</td></tr>
+<tr><td>後端</td><td>伺服器端負責驗證、資料處理與其他邏輯的部分。</td></tr>
+<tr><td>靜態網站</td><td>把已準備好的檔案提供給瀏覽器，也可以有前端互動。</td></tr>
+<tr><td>資料庫</td><td>有組織地持久保存和查詢資料的系統。</td></tr>
+<tr><td>API</td><td>系統之間約定的資料或功能存取介面。</td></tr>
+<tr><td>API key</td><td>存取某項 API 的憑證，不能放在公開前端。</td></tr>
+<tr><td>Git</td><td>記錄檔案版本的工具。</td></tr>
+<tr><td>GitHub</td><td>保存程式碼及協作的服務平台。</td></tr>
+<tr><td>Repository／Repo</td><td>集中存放專案檔案和版本紀錄的儲存庫。</td></tr>
+<tr><td>Commit</td><td>一次有說明的版本紀錄。</td></tr>
+<tr><td>Branch</td><td>分開進行修改的版本分支，本課主線用 main。</td></tr>
+<tr><td>Deploy／部署</td><td>把可執行或可呈現的版本發布到主機供訪客使用。</td></tr>
+<tr><td>GitHub Pages</td><td>GitHub 提供的靜態網站發布服務。</td></tr>
+<tr><td>Hosting／主機託管</td><td>讓網站檔案持續可被訪客存取的服務。</td></tr>
+<tr><td>Domain／網域</td><td>易讀的網站名稱，例如 example.com。</td></tr>
+<tr><td>HTTPS</td><td>瀏覽器與網站之間使用加密連線的協定，不代表內容一定可信。</td></tr>
+<tr><td>相對路徑</td><td>依目前檔案位置尋找資源，例如 ./photo.jpg。</td></tr>
+<tr><td>Cache／快取</td><td>暫存舊資源以加速存取，有時讓你看到舊版畫面。</td></tr>
+<tr><td>Build／建置</td><td>把原始碼轉成可部署成品的過程，框架專案常需要。</td></tr>
+<tr><td>Framework／框架</td><td>提供既定結構的開發工具，例如 React 生態的專案架構。</td></tr>
+<tr><td>Credit／額度</td><td>平台計算用量的單位，不一定一個指令等於一點。</td></tr>
+<tr><td>Local／本機</td><td>目前自己電腦內的環境，與公開主機不同。</td></tr>
+<tr><td>Debug／除錯</td><td>找出問題、修正並確認其他功能仍可用。</td></tr>
+<tr><td>靜態匯出</td><td>把畫面整理成可由瀏覽器直接呈現的 HTML、CSS、JavaScript 與資源。</td></tr>
+<tr><td>雙向同步</td><td>兩端的指定分支交換修改，仍須處理版本與衝突，不代表網站已發布。</td></tr>
+<tr><td>GitHub Actions</td><td>GitHub 執行自動工作流程的功能，也能負責檢查、建置與 Pages 部署。</td></tr>
+<tr><td>發布來源</td><td>Pages 要讀取的分支與資料夾，例如 main 的 /docs，或自訂 Actions 產物。</td></tr>
+<tr><td>Artifacts</td><td>Claude 可建立、編輯與匯出的作品，預覽可用仍須另外驗收獨立檔。</td></tr>
+<tr><td>Standalone HTML</td><td>可獨立開啟的 HTML。本課將樣式與互動內嵌，減少平台依賴。</td></tr>
+<tr><td>Export／匯出</td><td>把作品轉成可下載的檔案格式，匯出後仍需儲存、驗收與提交。</td></tr>
+<tr><td>Claude Code</td><td>另一種面向程式專案的工具，本課一般 Claude／Artifacts 路線不要求使用。</td></tr>
+</tbody></table></div>
+<h1>研究資料來源紀錄</h1>
+<p>查閱日期：2026-11-05（臺灣時間）。價格、額度與介面會變動，講師授課前一天重新走查。以官方文件為主，未上傳客戶機密或個資作搜尋。</p>
+<ul>
+<li><a href="https://mosful.github.io/camp/">範例：2026 生活營手冊</a>：範例網站作者。更新日期：未標示。查閱：2026-11-05。支持：頁內導覽、行程、地圖、準備清單的教學拆解。只分析結構，不重製私人資料。</li>
+<li><a href="https://help.openai.com/en/articles/9275245-chatgpt-free-tier-faq">ChatGPT Free Tier FAQ</a>：OpenAI。更新日期：持續更新，依當日帳號畫面。查閱：2026-11-05。支持：免費可用，工具及額度各有規則，不把特定模型或 GitHub 連接當成全班必備。</li>
+<li><a href="https://help.openai.com/en/articles/7730893-data-controls-in-chatgpt">Data controls in ChatGPT</a>：OpenAI。更新日期：動態更新頁面。查閱：2026-11-05。支持：個人工作區可在 Settings／Data controls 調整 Improve the model for everyone。</li>
+<li><a href="https://docs.lovable.dev/introduction/credits-and-usage">Credits and usage</a>：Lovable。更新日期：未標示。查閱：2026-11-05。支持：查閱時 Free 建置額度每日 5、每月最多 30。建置、聊天、部署後 Cloud／AI 使用分開計算。</li>
+<li><a href="https://docs.lovable.dev/introduction/getting-started">Quick start</a>：Lovable。更新日期：未標示。查閱：2026-11-05。支持：註冊、輸入需求、預覽、逐項修改、發布的流程。</li>
+<li><a href="https://docs.lovable.dev/integrations/github">Sync your Lovable project with GitHub</a>：Lovable。更新日期：未標示。查閱：2026-11-05。支持：github.com 整合明示適用所有方案，含 Free。可雙向同步，新儲存庫預設 private。平台內直接下載 codebase 屬付費功能，可改從 GitHub 下載 ZIP。</li>
+<li><a href="https://docs.lovable.dev/features/publish">Publish your Lovable project</a>：Lovable。更新日期：未標示。查閱：2026-11-05。支持：Publish、網站位址、發布確認與 Publish changes。發布權限及公開範圍依工作區設定。</li>
+<li><a href="https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site">Creating a GitHub Pages site</a>：GitHub。更新日期：未標示。查閱：2026-11-05。支持：GitHub Free 以 public repository 使用 Pages，入口檔案位置與發佈等待。</li>
+<li><a href="https://docs.github.com/en/repositories/working-with-files/managing-files/adding-a-file-to-a-repository">Adding a file to a repository</a>：GitHub。更新日期：未標示。查閱：2026-11-05。支持：Add file／Upload files 與提交。</li>
+<li><a href="https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site">Configuring a publishing source</a>：GitHub。更新日期：未標示。查閱：2026-11-05。支持：靜態頁以 main 的 /docs 自動發布；自訂 Actions 為另一種可選發布來源。兩種設定擇一。</li>
+<li><a href="https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits">GitHub Pages limits</a>：GitHub。更新日期：未標示。查閱：2026-11-05。支持：用途及服務限制，避免用於敏感交易、電商或主要促成商業交易的網站。</li>
+<li><a href="https://support.google.com/docs/answer/6281888?hl=zh-Hant">如何使用 Google 表單</a>：Google。更新日期：未標示。查閱：2026-11-05。支持：表單建立、發布及回覆查看。實際外部填答權限仍須測試。</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Getting_started/Your_first_website/Creating_the_content">HTML: Creating the content</a>：MDN Web Docs。更新日期：持續維護文件。查閱：2026-11-05。支持：HTML 內容結構、元素及連結。</li>
+<li><a href="https://help.openai.com/en/articles/11145903-connecting-github-to-chatgpt">Connecting GitHub to ChatGPT</a>：OpenAI。更新日期：查閱時顯示 16 天前更新。查閱：2026-11-05。支持：GitHub app 只讀取／搜尋／分析，不推送程式碼。可用性依方案與介面，沒有保證所有 Free 帳號皆可連接。</li>
+<li><a href="https://docs.lovable.dev/tips-tricks/deployment-hosting-ownership">Deployment, hosting, and ownership options</a>：Lovable。更新日期：未標示。查閱：2026-11-05。支持：官方說明新專案自 2026-05-13 起採 TanStack Start，含伺服器執行需求。舊 React＋Vite 才能直接建置靜態檔。Pages 主線採另外產出獨立靜態頁。</li>
+<li><a href="https://docs.github.com/en/repositories/working-with-files/using-files/downloading-source-code-archives">Downloading source code archives</a>：GitHub。更新日期：未標示。查閱：2026-11-05。支持：Code／Download ZIP 可取得原始碼快照，快照不含完整 Git 歷史。</li>
+<li><a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility">Setting repository visibility</a>：GitHub。更新日期：未標示。查閱：2026-11-05。支持：公開前審查整份儲存庫及歷史。Settings／General／Danger Zone 可調整 visibility，組織可限制權限。</li>
+<li><a href="https://vite.dev/guide/static-deploy.html">Deploying a Static Site</a>：Vite。更新日期：持續維護文件。查閱：2026-11-05。支持：只適用確認為 Vite 靜態專案的進階路線：build、dist、base 與 Actions。不可套用所有 Lovable 新專案。</li>
+<li><a href="https://support.claude.com/en/articles/17153992-what-are-artifacts-and-how-do-i-use-them">What are artifacts and how do I use them?</a>：Anthropic。更新日期：查閱時顯示本週更新。查閱：2026-11-05。支持：Free 可用 Artifacts。需開啟 Create and edit files／Cloud code execution。Design 可匯出 standalone HTML，介面以當日畫面為準。</li>
+<li><a href="https://support.claude.com/en/articles/10167454-use-the-github-integration">Use the GitHub integration</a>：Anthropic。更新日期：查閱時顯示超過兩週前更新。查閱：2026-11-05。支持：GitHub 整合可將授權檔案作為對話或專案脈絡。此課不依賴整合，不把加入來源或 Sync 操作視為網站已發布。</li>
+<li><a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh-hant">CC BY-SA 4.0 授權摘要</a>：Creative Commons。更新日期：未標示。查閱：2026-11-05。支持：使用者選定教材原創內容採姓名標示、相同方式分享 4.0 國際授權，允許商用與改作，須署名並依條款處理改作。第三方素材仍依原授權。</li>
+</ul>
+<h2>限制</h2>
+<p>範例頁經直接 HTTP 讀取分析結構，未複製其私人資料。常見問題題庫為教學經驗情境整理，沒有宣稱統計上的詢問頻率。此教材沒有替使用者建立學員帳號、正式報名表或對外發布活動。Google 表單權限需用外部帳號實測。</p></main><!-- course-footer:start -->
+<style data-course-footer-style>
+[data-course-footer]{box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;width:100%;max-width:100%;margin:32px auto 0;padding:24px 20px;color:#506151;background:#f1f3ec;text-align:center;font-family:"Microsoft JhengHei","PingFang TC",system-ui,sans-serif;line-height:1.7}
+[data-course-footer] small{display:block;font-size:14px;max-width:80ch;font-weight:400}[data-course-footer] a{color:inherit;text-underline-offset:4px;overflow-wrap:anywhere}[data-course-footer] .course-contact{position:relative;display:block;padding:0;margin:0;background:transparent;color:inherit;border:0;text-align:center}
+[data-course-footer] .course-contact>summary{list-style:none;display:block;font:inherit;font-size:14px;font-weight:400;line-height:1.5;padding:12px 16px;margin:0;cursor:pointer;text-decoration:underline;text-underline-offset:4px;background:transparent}
+[data-course-footer] .course-contact>summary::-webkit-details-marker{display:none}[data-course-footer] .course-contact>summary::marker{content:""}
+[data-course-footer] .course-contact-card{position:absolute;z-index:100;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);width:300px;max-width:calc(100vw - 32px);box-sizing:border-box;padding:18px 20px;background:#fff;color:#193f32;box-shadow:0 10px 32px rgb(0 0 0 / .18);font-size:16px;line-height:1.7;text-align:left;animation:none}
+[data-course-footer] .course-contact-card strong{display:block;font-size:18px;margin:0 44px 10px 0}[data-course-footer] .course-contact-card a{display:block;padding:8px 0;margin:0;min-height:42px}
+[data-course-footer] .course-contact-close{position:absolute;right:8px;top:8px;padding:8px;background:transparent;border:0;color:inherit;font:inherit;font-size:14px;min-width:44px;min-height:40px;cursor:pointer}
+[data-course-footer] :focus-visible{outline:3px solid #8a681d;outline-offset:3px}
+@media print{[data-course-footer]{display:flex!important;background:#fff;break-inside:avoid;padding:12px 0;margin-top:24px}[data-course-footer] small{font-size:9pt}[data-course-footer] .course-contact>summary,[data-course-footer] .course-contact-card{display:none!important}}
+[data-back-to-top]{position:fixed;right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));z-index:90;display:flex;align-items:center;gap:6px;min-width:48px;min-height:48px;padding:10px 16px;border:0;border-radius:999px;background:#193f32;color:#fff;font:600 15px/1 "Microsoft JhengHei","PingFang TC",system-ui,sans-serif;cursor:pointer;box-shadow:0 6px 20px rgb(0 0 0 / .22);opacity:0;visibility:hidden;transform:translateY(12px);transition:opacity .2s,transform .2s,visibility .2s}
+[data-back-to-top].is-visible{opacity:1;visibility:visible;transform:none}[data-back-to-top]:hover{background:#2c5e4b}
+[data-back-to-top]:focus-visible{outline:3px solid #d9e9a4;outline-offset:3px}[data-back-to-top] span[aria-hidden]{font-size:18px}
+@media(max-width:600px){[data-back-to-top] .back-to-top-text{display:none}[data-back-to-top]{padding:0;justify-content:center;width:48px}}
+@media(prefers-reduced-motion:reduce){[data-back-to-top]{transition:none}}
+@media print{[data-back-to-top]{display:none!important}}
+</style>
+<footer data-course-footer>
+<small>© 2026 Mr. Lin。本教材原創內容採 <a rel="license noopener" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh-hant" target="_blank">CC BY-SA 4.0</a> 授權：須署名、可商用，改作須同授權。第三方素材依原授權。</small>
+<details class="course-contact"><summary>聯繫 Mr. Lin</summary><div class="course-contact-card"><button class="course-contact-close" type="button" aria-label="關閉聯繫資訊">關閉</button><strong>Mr. Lin</strong><a href="tel:+886919633120">+886-919633120</a><a href="mailto:mosful@gmail.com">mosful@gmail.com</a></div></details>
+</footer>
+<button type="button" data-back-to-top aria-label="回到頁首"><span aria-hidden="true">↑</span><span class="back-to-top-text">回到頁首</span></button>
+<script data-course-footer-script>
+(()=>{const c=document.querySelector('[data-course-footer] .course-contact');if(!c)return;const close=()=>{c.open=false;c.querySelector('summary').focus()};c.querySelector('.course-contact-close').addEventListener('click',close);document.addEventListener('keydown',e=>{if(e.key==='Escape'&&c.open){e.preventDefault();close()}});document.addEventListener('click',e=>{if(c.open&&!c.contains(e.target))c.open=false})})();
+(()=>{const b=document.querySelector('[data-back-to-top]');if(!b)return;const sync=()=>b.classList.toggle('is-visible',scrollY>Math.max(40,Math.min(400,(document.documentElement.scrollHeight-innerHeight)/2)));addEventListener('scroll',sync,{passive:true});sync();b.addEventListener('click',()=>{const r=matchMedia('(prefers-reduced-motion: reduce)').matches;scrollTo({top:0,behavior:r?'auto':'smooth'});const t=document.querySelector('h1,main,[role=main]');if(t){if(!t.hasAttribute('tabindex'))t.setAttribute('tabindex','-1');t.focus({preventScroll:true});}})})();
+</script>
+<!-- course-footer:end -->
+</body></html>
